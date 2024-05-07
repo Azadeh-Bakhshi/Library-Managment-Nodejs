@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="/dashboard-style.css">
+  <style>
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 20px; /* Increased margin for better separation */
+    }
+
+    form {
+      display: inline-block;
+    }
+
+    button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  {{> header}}
+
+  <h1>View All Books</h1>
+
+  {{#books}}
+    <ul>
+      <li>
+        <!-- Update form for each book -->
+        <form method="POST" action="/books/update">
+          <input type="hidden" name="bookId" value="{{_id}}">
+          
+          <label for="updateName">Name:</label>
+          <input type="text" name="updateName" value="{{name}}" required>
+
+          <label for="updateTitle">Title:</label>
+          <input type="text" name="updateTitle" value="{{title}}" required>
+
+          <label for="updateQuantity">Quantity:</label>
+          <input type="number" name="updateQuantity" value="{{quantity}}" required>
+
+          <button type="submit">Update</button>
+        </form>
+
+        <!-- Delete form for each book -->
+        <form method="POST" action="/books/delete">
+          <input type="hidden" name="bookId" value="{{_id}}">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    </ul>
+  {{/books}}
+
+  {{#message}}
+    <div>
+      <p>{{message}}</p>
+      <p>Name: {{messageData.name}}</p>
+      <p>Title: {{messageData.title}}</p>
+      <p>Quantity: {{messageData.quantity}}</p>
+    </div>
+  {{/message}}
+
+</body>
+</html>

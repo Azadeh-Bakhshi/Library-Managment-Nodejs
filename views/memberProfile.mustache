@@ -1,0 +1,67 @@
+<!-- checkoutBook.mustache -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Books</title>
+    <link rel="stylesheet" type="text/css" href="/dashboard-style.css">
+    <script src="./routes/memberDashboard.js" defer></script>
+    <script src="./CheckOutBook.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Member Dashboard</h1>
+    <nav>
+      <ul>
+        <li><a href="/memberDashboard">Home</a></li>
+        <li><a href="/profile/member">profile</a></li>
+        <li><a href="/CheckOutBook">Check Out Book</a></li>
+        <li><a href="/ReturnBook">Return Book</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+<body>
+ 
+
+  <h2>Member Profile</h2>
+  {{#message}}
+    <p>{{ message }}</p>
+  {{/message}}
+  <p>Role: {{ role }}</p>
+  <form action="/profile/member/update" method="post">
+    <ul>
+      <li>
+        <label for="username">Username:</label>
+        <input type="text" name="username" value="{{ username }}">
+      </li>
+      <li>
+        <label for="firstname">First Name:</label>
+        <input type="text" name="firstname" value="{{ firstname }}">
+      </li>
+      <li>
+        <label for="lastname">Last Name:</label>
+        <input type="text" name="lastname" value="{{ lastname }}">
+      </li>
+      <li>
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="{{ email }}">
+      </li>
+      <li>
+        <label for="phonenumber">Phone Number:</label>
+        <input type="text" name="phonenumber" value="{{ phonenumber }}">
+      </li>
+      <li>
+        <label for="oldPassword">Old Password:</label>
+        <input type="password" id="oldPassword" name="oldPassword" required>
+      </li>
+      <li>
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword">
+      </li>
+    </ul>
+    <button type="submit">Update Profile</button>
+  </form>
+</body>
+</html>

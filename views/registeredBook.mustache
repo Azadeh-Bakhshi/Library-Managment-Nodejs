@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="/dashboard-style.css">
+  <style>
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    form {
+      display: inline-block;
+    }
+
+    button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  {{> header}}
+
+  <h1>Register Book</h1>
+
+  {{#error}}
+    <p style="color: red;">{{error}}</p>
+  {{/error}}
+  {{#message}}
+    <p style="color: green;">{{message}}</p>
+  {{/message}}
+
+  {{#newBook}}
+    
+    <p>Name: {{newBook.name}}</p>
+    <p>Title: {{newBook.title}}</p>
+    <p>Quantity: {{newBook.quantity}}</p>
+  {{/newBook}}
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="/dashboard-style.css">
+  <style>
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    form {
+      display: inline-block;
+    }
+
+    button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  {{> header}}
+
+  <main>
+    
+    <h2>View All Users</h2>
+
+    {{#message}}
+      <p style="color: green;">{{message}}</p>
+    {{/message}}
+
+    <ul>
+      {{#users}}
+        <li>
+          <form method="post" action="/users/update">
+            <input type="hidden" name="userId" value="{{_id}}">
+            
+            <!-- Displaying editable fields -->
+            <input type="text" name="firstname" value="{{firstname}}" required>
+            <input type="text" name="lastname" value="{{lastname}}" required>
+            <input type="text" name="email" value="{{email}}" required>
+            <input type="text" name="role" value="{{role}}" required>
+
+            
+            <button type="submit">Update</button>
+          </form>
+
+          <form method="post" action="/users/delete">
+            <input type="hidden" name="userId" value="{{_id}}">
+            <button type="submit">Delete</button>
+          </form>
+
+          <!-- Add Deactivate button -->
+          <form method="post" action="/users/deactivate">
+            <input type="hidden" name="userId" value="{{_id}}">
+            <button type="submit">Deactivate</button>
+          </form>
+
+
+          <form method="post" action="/users/reactivate">
+            <input type="hidden" name="userId" value="{{_id}}">
+            <button type="submit">Reactivate</button>
+          </form>
+
+        </li>
+      {{/users}}
+    </ul>
+  </main>
+</body>
+</html>

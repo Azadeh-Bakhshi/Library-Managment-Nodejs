@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    /* styles.css */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    select {
+      width: 90%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    button[type="submit"] {
+      width: 50%;
+      padding: 10px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background: #0056b3;
+    }
+
+    p {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Library Login</h1>
+   {{#maxCheckoutBooks}}
+  <div class="max-checkout-books">
+    <h2>Books with Maximum Checkouts</h2>
+      <div class="book-info">
+        <p>Name: {{name}}</p>
+        <p>Title: {{title}}</p>
+      </div>
+  </div>
+{{/maxCheckoutBooks}}
+
+   {{#deactivated}}
+    <p style="color: red;">User is deactivated.</p>
+  {{/deactivated}}
+  {{#error}}
+    <p style="color: red;">{{error}}</p>
+  {{/error}}
+  <form method="POST" action="/login">
+    <input type="text" name="username" placeholder="Username" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <select name="role" required>
+      <option value="admin">Admin</option>
+      <option value="member">member</option>
+    </select><br>
+    <button type="submit">Login</button>
+    <a href="/registerUser">Register</a>
+  </form>
+</body>
+</html>

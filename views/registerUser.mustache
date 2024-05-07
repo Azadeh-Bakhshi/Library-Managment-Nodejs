@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <style>
+    /* styles.css */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="firstname"],
+    input[type="lastname"],
+    input[type="phonenumber"] {
+      width: 90%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    select {
+      width: 90%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    button[type="submit"] {
+      width: 50%;
+      padding: 10px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background: #0056b3;
+    }
+
+    p {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Register</h1>
+  
+  {{#error}}
+    <p style="color: red;">{{error}}</p>
+  {{/error}}
+  <form method="POST" action="/registerUser">
+    <input type="text" name="username" placeholder="Username" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="text" name="firstname" placeholder="First Name" required><br>
+    <input type="text" name="lastname" placeholder="Last Name" required><br>
+    <input type="text" name="phonenumber" placeholder="Phone Number" required><br>
+    <select name="role" required>
+      <option value="admin">Admin</option>
+      <option value="member">member</option>
+    </select><br>
+    <button type="submit">Register</button>
+  
+  </form>
+</body>
+</html>

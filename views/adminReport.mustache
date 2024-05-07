@@ -1,0 +1,54 @@
+<!-- adminProfile.mustache -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="/dashboard-style.css">
+  <style>
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    form {
+      display: inline-block;
+    }
+
+    button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  {{> header}}
+  <h1>Admin Report</h1>
+
+
+  <h2> Book has the most checkouts:</h2>
+  {{#mostCheckoutBooks}}
+  {{#name}}
+    <p>Book: {{name}}, Title: {{title}}, Number of Checkouts: {{checkoutCount}}</p>
+  {{/name}}
+  {{/mostCheckoutBooks}}
+  {{^mostCheckoutBooks}}
+  <p>No books with checkouts found.</p>
+  {{/mostCheckoutBooks}}
+
+  <h2>Number of members register in the library:</h2>
+  <p>{{numberOfMembers}}</p>
+
+  <h2>Number of admins register in the library:</h2>
+  <p>{{numberOfAdmins}}</p>
+
+  <h2>Number of books exist in the library:</h2>
+  <p>{{totalNumberOfBooks}}</p>
+  
+  <h2>Number of Active Users:</h2>
+  <p>{{numberOfActiveUsers}}</p>
+  
+</body>
+</html>

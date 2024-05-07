@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="/dashboard-style.css">
+  <style>
+    div {
+      margin-top: 20px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  {{> header}}
+
+  <div>
+    <h2>{{message}}</h2>
+    
+    {{#messageData}}
+      <p>Firstname: {{firstname}}</p>
+      <p>Lastname: {{lastname}}</p>
+      <p>Role: {{role}}</p>
+      <p>Email: {{email}}</p>
+    {{/messageData}}
+
+    <a href="/users">Go back to View All Users</a>
+  </div>
+</body>
+</html>

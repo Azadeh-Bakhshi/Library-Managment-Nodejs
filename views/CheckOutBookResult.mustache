@@ -1,0 +1,36 @@
+<!-- CheckOutBook.mustache -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Books</title>
+    <link rel="stylesheet" type="text/css" href="/dashboard-style.css">
+    <script src="./routes/memberDashboard.js" defer></script>
+    <script src="./CheckOutBook.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Member Dashboard</h1>
+    <nav>
+      <ul>
+        <li><a href="/memberDashboard">Home</a></li>
+        <li><a href="/profile/member">Profile</a></li>
+        <li><a href="/CheckOutBook">Check Out Book</a></li>
+        <li><a href="/ReturnBook">Return Book</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+<body>
+ 
+
+  <h1>Checkout Book Result</h1>
+
+  {{#message}}
+    <p>{{message}}</p>
+    <p>Name: {{messageData.name}}</p>
+    <p>Title: {{messageData.title}}</p>
+  {{/message}}
+</body>
+</html>

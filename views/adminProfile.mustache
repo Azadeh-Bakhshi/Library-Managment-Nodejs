@@ -1,0 +1,74 @@
+<!-- adminProfile.mustache -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="/dashboard-style.css">
+  <style>
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    form {
+      display: inline-block;
+    }
+
+    button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  {{> header}}
+
+  <h2>Admin Profile</h2>
+  {{#message}}
+    <p>{{ message }}</p>
+  {{/message}}
+
+  <!-- Display error messages here -->
+  {{#error}}
+    <p style="color: red;">{{ error }}</p>
+  {{/error}}
+
+  <p>Role: {{ role }}</p>
+  <form action="/profile/admin/update" method="post">
+    <ul>
+      <li>
+        <label for="username">Username:</label>
+        <input type="text" name="username" value="{{ username }}">
+      </li>
+      <li>
+        <label for="firstname">First Name:</label>
+        <input type="text" name="firstname" value="{{ firstname }}">
+      </li>
+      <li>
+        <label for="lastname">Last Name:</label>
+        <input type="text" name="lastname" value="{{ lastname }}">
+      </li>
+      <li>
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="{{ email }}">
+      </li>
+      <li>
+        <label for="phonenumber">Phone Number:</label>
+        <input type="text" name="phonenumber" value="{{ phonenumber }}">
+      </li>
+      <li>
+        <label for="oldPassword">Old Password:</label>
+        <input type="password" id="oldPassword" name="oldPassword" required>
+      </li>
+      <li>
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword">
+      </li>
+    </ul>
+    <button type="submit">Update Profile</button>
+  </form>
+</body>
+</html>
